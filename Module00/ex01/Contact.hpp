@@ -6,7 +6,7 @@
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:27 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/26 15:45:34 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:19:39 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Contact
 
 	public:
 	std::string put_search(int id);
+	std::string display_informations(int id);
 	void init_contact();
-	void init_search();
 	Contact(){};
 	~Contact(){};
 };

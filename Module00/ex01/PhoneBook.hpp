@@ -6,7 +6,7 @@
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:38 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/26 15:25:28 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:15:46 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PhoneBook
 	void add_search();
 	void add_contact();
 	void prompt();
-	PhoneBook(){};
+	PhoneBook(){this->index = 0;};
 	~PhoneBook(){};
 };
 

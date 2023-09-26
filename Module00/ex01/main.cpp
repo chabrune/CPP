@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
+/*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:25 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/26 14:35:24 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:55:40 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 {
 	(void)argv;
 	PhoneBook book;
-	std::string buff;
+	std::string buff = "";
 	if(argc == 1)
 	{
 		book.prompt();

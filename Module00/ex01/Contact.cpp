@@ -6,7 +6,7 @@
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:30 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/26 15:48:03 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:48:13 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 void Contact::init_contact()
 {
 	std::string buff;
-	static int i = 0;
-	if(i++ > 7)
-		i = 0;
 	buff = "";
 	while(buff.length() == 0 || buff.length() > 255)
 	{
@@ -68,11 +65,54 @@ void Contact::init_contact()
 		if(buff.length() == 0 || buff.length() > 255)
 			std::cout << "Please try again" << std::endl << std::endl;
 	}
+	std::cout << std::endl;
 	this->darkest_secret = buff;
 }
 
-std::string put_search(int id)
+std::string Contact::put_search(int id)
 {
-	if(1 alors prenom / 2 nom / 3 surnom etc etc)
-		return strigng
+	std::string buff;
+	if(id == 1)
+	{
+		if(first_name.length() > 10)
+		{
+			buff = first_name.substr(0, 9) + ".";
+			return(buff);
+		}
+		return(first_name);
+	}
+	if(id == 2)
+	{
+		if(last_name.length() > 10)
+		{
+			buff = last_name.substr(0, 9) + ".";
+			return(buff);
+		}
+		return(last_name);
+	}
+	if(id == 3)
+	{
+		if(nickname.length() > 10)
+		{
+			buff = nickname.substr(0, 9) + ".";
+			return(buff);
+		}
+		return(nickname);
+	}
+	return(0);
+}
+
+std::string Contact::display_informations(int id)
+{
+	if(id == 1)
+		return(first_name);
+	if(id == 2)
+		return(last_name);
+	if(id == 3)
+		return(nickname);
+	if(id == 4)
+		return(phone_number);
+	if(id == 5)
+		return(darkest_secret);
+	return(0);	
 }
