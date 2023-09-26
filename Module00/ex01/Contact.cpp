@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
+/*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:30 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/26 14:56:08 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/26 15:48:03 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void Contact::init_contact()
 	static int i = 0;
 	if(i++ > 7)
 		i = 0;
-	this->index = i;
 	buff = "";
 	while(buff.length() == 0 || buff.length() > 255)
 	{
@@ -71,16 +70,9 @@ void Contact::init_contact()
 	}
 	this->darkest_secret = buff;
 }
-void	Contact::init_search()
-{
-	std::cout << "Index    | First Name | Last Name  | Nickname  " << std::endl;
-    std::cout << "-----------------------------------------" << std::endl;
-	for (size_t i = 0; i < 8; ++i) {
-        // Right-align and truncate strings if necessary
-        std::cout << std::right << std::setw(10) << i << " | " << std::setw(10) << (contacts[i].firstName.length() > 10 ? contacts[i].firstName.substr(0, 9) + "." : contacts[i].firstName)
-             << " | " << std::setw(10) << (contacts[i].lastName.length() > 10 ? contacts[i].lastName.substr(0, 9) + "." : contacts[i].lastName)
-             << " | " << std::setw(10) << (contacts[i].nickname.length() > 10 ? contacts[i].nickname.substr(0, 9) + "." : contacts[i].nickname)
-             << std::endl;
-	}
 
+std::string put_search(int id)
+{
+	if(1 alors prenom / 2 nom / 3 surnom etc etc)
+		return strigng
 }

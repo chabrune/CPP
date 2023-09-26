@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
+/*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:38 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/26 14:53:34 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/26 15:25:28 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 class PhoneBook
 {
 	Contact users[8];
+	int index;
 
 	public:
 	void add_search();
