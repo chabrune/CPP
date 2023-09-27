@@ -6,20 +6,22 @@
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:54:00 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/27 15:08:38 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:47:14 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name, std::string type)
+Zombie::Zombie(std::string name)
 {
-	this->_name = name;
-	this->_type = type;
+	this->name = name;
 }
-
+Zombie::~Zombie()
+{
+	std::cout << this->name << ": Has been destroyed" << std::endl;
+}
 
 void	Zombie::announce(void)
 {
-	std::cout << "<" << this->_name << " (" << this->_type << ")> Braiiiiiiinnnssss..." << std::endl;
+	std::cout  << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
