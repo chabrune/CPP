@@ -6,7 +6,7 @@
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:36 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/26 11:52:12 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/27 09:27:49 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,25 @@ void PhoneBook::add_search()
 		std::cout << std::right << std::setw(10) << i + 1 << "|" << std::setw(10) << users[i].put_search(1) << "|" << std::setw(10) << users[i].put_search(2)  << "|" << std::setw(10) << users[i].put_search(3) << std::endl << std::endl;
 	int j = 0;
 	std::cout << "Enter index for complete contact informations : ";
-	std::cin >> j;
-	std::cout << std::endl << std::endl;
-	if(j > 0 && j < 8)
+	std::string buff;
+    if (std::getline(std::cin, buff))
+    {
+        try
+        {
+            j = std::stoi(buff);
+        }
+        catch (const std::invalid_argument &)
+        {
+            std::cout << "Invalid input. Please enter a valid index." << std::endl;
+            return;
+        }
+    }
+    else
+    {
+        std::cout << "Invalid input. Please enter a valid index." << std::endl;
+        return;
+    }
+	if(j > 0 && j < 8 && j <= this->index)
 	{
 		std::cout << "Firstname : " << users[j - 1].display_informations(1) << std::endl;
 		std::cout << "Lastname : " << users[j - 1].display_informations(2) << std::endl;
