@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:36 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/27 09:33:57 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:17:15 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ void PhoneBook::prompt()
 void PhoneBook::add_contact()
 {
 	static int i = 0;
-	users[i++].init_contact();
 	if(i > 7)
 		i = 0;
-	this->index = i;
+	users[i].init_contact();
+	this->index++;
+	i++;
 }
 
 void PhoneBook::add_search()
@@ -35,8 +36,10 @@ void PhoneBook::add_search()
 	}
 	std::cout << "   Index  |First Name|Last Name | Nickname" << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
-	for(int i = 0; i < this->index; i++)
-		std::cout << std::right << std::setw(10) << i + 1 << "|" << std::setw(10) << users[i].put_search(1) << "|" << std::setw(10) << users[i].put_search(2)  << "|" << std::setw(10) << users[i].put_search(3) << std::endl << std::endl;
+	for(int i = 0; i < 8 && i < this->index; i++)
+	{
+		std::cout << std::right << std::setw(10) << i + 1 << "|" << std::setw(10) << users[i].put_search(1) << "|" << std::setw(10) << users[i].put_search(2)  << "|" << std::setw(10) << users[i].put_search(3) << std::endl;
+	}
 	int j = 0;
 	std::cout << "Enter index for complete contact informations : ";
 	std::string buff;
@@ -48,13 +51,13 @@ void PhoneBook::add_search()
         }
         catch (const std::invalid_argument &)
         {
-            std::cout << "Invalid input. Please enter a valid index." << std::endl;
+            std::cout << "No contact found at this index - Redirection to main menu..." << std::endl;
             return;
         }
     }
     else
     {
-        std::cout << "Invalid input. Please enter a valid index." << std::endl;
+        std::cout << "No contact found at this index - Redirection to main menu..." << std::endl;
         return;
     }
 	if(j > this->index || j == 0)
@@ -62,7 +65,7 @@ void PhoneBook::add_search()
 		std::cout << "No contact found at this index - Redirection to main menu..." << std::endl << std::endl;
 			return;
 	}
-	if(j > 0 && j < 8 && j <= this->index)
+	if(j > 0 && j <= 8 && j <= this->index)
 	{
 		std::cout << "Firstname : " << users[j - 1].display_informations(1) << std::endl;
 		std::cout << "Lastname : " << users[j - 1].display_informations(2) << std::endl;

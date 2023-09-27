@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+         #
+#    By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 14:43:09 by chabrune          #+#    #+#              #
-#    Updated: 2023/09/23 14:43:25 by chabrune         ###   ########.fr        #
+#    Updated: 2023/09/27 14:10:41 by chabrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRC = megaphone.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
