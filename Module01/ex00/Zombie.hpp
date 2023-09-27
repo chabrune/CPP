@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 10:35:27 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/27 16:35:49 by chabrune         ###   ########.fr       */
+/*   Created: 2023/09/27 14:52:37 by chabrune          #+#    #+#             */
+/*   Updated: 2023/09/27 15:08:07 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 # include <iostream>
-# include <cstring>
 # include <iomanip>
+# include <cstring>
 
-class Contact
+class Zombie
 {
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
-
+	private:
+		std::string		_name;
+		std::string		_type;
 	public:
-	std::string put_search(int id);
-	std::string display_informations(int id);
-	void init_contact();
-	Contact(){};
-	~Contact(){};
+		Zombie(std::string name, std::string type);
+		~Zombie(void){};
+		void			announce(void);
 };
 
 #endif
