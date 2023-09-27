@@ -6,7 +6,7 @@
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:35:36 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/27 09:27:49 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/09/27 09:33:57 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ void PhoneBook::add_search()
         std::cout << "Invalid input. Please enter a valid index." << std::endl;
         return;
     }
+	if(j > this->index || j == 0)
+	{
+		std::cout << "No contact found at this index - Redirection to main menu..." << std::endl << std::endl;
+			return;
+	}
 	if(j > 0 && j < 8 && j <= this->index)
 	{
 		std::cout << "Firstname : " << users[j - 1].display_informations(1) << std::endl;
