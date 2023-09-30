@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 14:51:56 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/28 11:58:17 by chabrune         ###   ########.fr       */
+/*   Created: 2023/09/30 19:46:16 by chabrune          #+#    #+#             */
+/*   Updated: 2023/09/30 20:47:40 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-int main(void)
+# include <string>
+# include <iostream>
+
+class Weapon
 {
-	Zombie	zombie1("Foo");
-	zombie1.announce();
-	Zombie *zombie2 = newZombie("Alloc");
-	zombie2->announce();
-	randomChump("Chump");
-	delete zombie2;
+	std::string _type;
 
-	return (0);
-}
+	public:
+	const std::string& getType(void);
+	void setType(std::string new_type);
+	Weapon(std::string name);
+	~Weapon();
+
+};
+#endif

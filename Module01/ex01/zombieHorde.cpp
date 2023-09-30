@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 14:51:56 by chabrune          #+#    #+#             */
-/*   Updated: 2023/09/28 11:58:17 by chabrune         ###   ########.fr       */
+/*   Created: 2023/09/30 18:22:01 by chabrune          #+#    #+#             */
+/*   Updated: 2023/09/30 18:53:57 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main(void)
+Zombie* zombieHorde( int N, std::string _name )
 {
-	Zombie	zombie1("Foo");
-	zombie1.announce();
-	Zombie *zombie2 = newZombie("Alloc");
-	zombie2->announce();
-	randomChump("Chump");
-	delete zombie2;
-
-	return (0);
+	Zombie *zombies = new Zombie[N];
+	for(int i = 0; i < N; i++)
+		zombies[i].setName(_name);
+	return(zombies);
 }
