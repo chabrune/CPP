@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 19:46:16 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/01 13:32:47 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/01 16:11:16 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/01 16:42:08 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#include "Harl.hpp"
 
-# include <string>
-# include <iostream>
-
-class Weapon
+int main()
 {
-	std::string _type;
-
-	public:
-	const std::string& getType(void);
-	void setType(std::string new_type);
-	Weapon(std::string name);
-	~Weapon();
-
-};
-#endif
+	Harl frr;
+	frr.complain("WARNING");
+	frr.complain("INFO");
+	frr.complain("DEBUG");
+	frr.complain("ERROR");
+	return(0);
+}

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 19:46:16 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/01 13:32:47 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/01 16:11:33 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/01 17:03:39 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
-# include <string>
 # include <iostream>
+#  include <string>
 
-class Weapon
+class Harl
 {
-	std::string _type;
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
 
 	public:
-	const std::string& getType(void);
-	void setType(std::string new_type);
-	Weapon(std::string name);
-	~Weapon();
-
+	Harl();
+	~Harl();
+	void complain( std::string level );
 };
+
 #endif
