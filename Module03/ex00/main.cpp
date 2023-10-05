@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 18:22:01 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/05 17:14:31 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/05 17:20:11 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/05 18:57:11 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.hpp"
 
-Zombie* zombieHorde( int N, std::string _name )
+int main()
 {
-	Zombie *zombies = new Zombie[N];
-	for(int i = 0; i < N; i++)
-		zombies[i].setName(_name);
-	return(zombies);
+    ClapTrap ct("Charles");
+    ct.attack("Emma");
+    ct.takeDamage(3);
+    ct.beRepaired(5);
+    ct.beRepaired(1);
+    ct.takeDamage(2);
+    ct.takeDamage(6);
+    ct.takeDamage(10);
+    ct.takeDamage(15);
 }

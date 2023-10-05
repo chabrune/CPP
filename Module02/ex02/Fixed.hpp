@@ -6,7 +6,7 @@
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:07:19 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/03 21:26:40 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:51:35 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 # include <iostream>
 # include <cmath>
 
- /*
-        to convert a floating point to a fixed point we multiply the float number
-        with the base raised to the power of n (n the size of the fractional part)
-        to do the opposite we devide
-*/
-
 class Fixed
 {
 	private:
@@ -30,6 +24,7 @@ class Fixed
 	static const int _fractionalBits;
 
 	public:
+	float pow(float base, int exp);
 	Fixed( void );
 	Fixed(const float floatingPoint);
 	Fixed(const int integer);

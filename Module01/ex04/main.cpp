@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chabrune <charlesbrunet51220@gmail.com>    +#+  +:+       +#+        */
+/*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 13:35:20 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/01 16:06:42 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:13:53 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	replace(const std::string filename, const std::string s1, const std::string
 	std::string buff;
 	std::ifstream inputFile;
 	std::ofstream outputFile;
-	inputFile.open(filename);
+	std::string newFilename = filename + ".replace";
+	inputFile.open(filename.c_str());
 	if(inputFile.fail()){
 		std::cerr << "Error : Unable to open input file." << std::endl;
 		return;
 	}
-	while(!inputFile.eof() && inputFile >> std::noskipws >> c)
+	while(!inputFile.eof() && inputFile >> std::noskipws >> c)~
 		buff += c;
 	inputFile.close();
-	std::cout << buff << std::endl;
-	outputFile.open(filename + ".replace");
+	outputFile.open(newFilename.c_str());
 	if(outputFile.fail())
 		return;
 	size_t pos = 0;
