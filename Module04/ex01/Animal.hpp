@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 17:20:11 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/06 12:58:47 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/08 14:28:55 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/08 16:53:37 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-int main()
+# include <iostream>
+# include <string>
+# include "Brain.hpp"
+# include <cstdlib>
+
+class Animal
 {
-    ScavTrap st1("Martine");
-    ClapTrap ct1("Valerie");
-    st1.attack("Valeriri");
-    ct1.attack("Martitine");
-    ct1.takeDamage(10);
-    ct1.takeDamage(10);
-    st1.guardGate();
-}
+    protected:
+    std::string type;
+
+    public:
+    Animal();
+    virtual ~Animal();
+    Animal& operator=(Animal const & rhs);
+    Animal(Animal const & copy);
+    virtual void makeSound( void ) const;
+    virtual std::string getType( void ) const;
+};
+
+#endif

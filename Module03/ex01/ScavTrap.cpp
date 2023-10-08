@@ -6,13 +6,13 @@
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 19:15:03 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/05 20:21:22 by chabrune         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:14:00 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() // Appel explicite
 {
     this->_Attack = 20;
     this->_Energy = 50;

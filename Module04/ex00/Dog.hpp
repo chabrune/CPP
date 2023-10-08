@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 17:20:11 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/06 12:58:47 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/08 14:36:44 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/08 15:38:59 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int main()
+# include <iostream>
+# include <string>
+# include "Animal.hpp"
+
+class Dog : public Animal
 {
-    ScavTrap st1("Martine");
-    ClapTrap ct1("Valerie");
-    st1.attack("Valeriri");
-    ct1.attack("Martitine");
-    ct1.takeDamage(10);
-    ct1.takeDamage(10);
-    st1.guardGate();
-}
+    protected:
+    std::string type;
+
+    public:
+    Dog();
+    ~Dog();
+    Dog& operator=(Dog const & rhs);
+    Dog(Dog const & copy);
+    void makeSound( void ) const;
+    std::string getType( void ) const;
+};
+
+#endif

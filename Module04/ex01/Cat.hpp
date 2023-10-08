@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 17:20:11 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/06 12:58:47 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/08 14:35:40 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/08 19:58:25 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int main()
+# include <iostream>
+# include <string>
+# include "Animal.hpp"
+
+class Cat : public Animal
 {
-    ScavTrap st1("Martine");
-    ClapTrap ct1("Valerie");
-    st1.attack("Valeriri");
-    ct1.attack("Martitine");
-    ct1.takeDamage(10);
-    ct1.takeDamage(10);
-    st1.guardGate();
-}
+    protected:
+    std::string type;
+
+    public:
+    Cat();
+    ~Cat();
+    Cat& operator=(Cat const & rhs);
+    Cat(Cat const & copy);
+    void makeSound( void ) const;
+    std::string getType( void ) const;
+
+    private:
+    Brain *_attribut;
+};
+
+#endif
