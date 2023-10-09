@@ -28,9 +28,9 @@ class Animal
     virtual ~Animal();
     Animal& operator=(Animal const & rhs);
     Animal(Animal const & copy);
-    virtual void makeSound( void ) const;
+    virtual void makeSound( void ) const = 0;
     virtual std::string getType( void ) const;
-    virtual Brain* getAttribut() const;
+    virtual Brain* getAttribut() const = 0;
 };
 
 #endif

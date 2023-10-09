@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 14:28:55 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/08 16:53:37 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/08 15:41:28 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/08 15:48:47 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 # include <string>
-# include "Brain.hpp"
-# include <cstdlib>
 
-class Animal
+class WrongAnimal
 {
     protected:
     std::string type;
 
     public:
-    Animal();
-    virtual ~Animal();
-    Animal& operator=(Animal const & rhs);
-    Animal(Animal const & copy);
-    virtual void makeSound( void ) const;
-    virtual std::string getType( void ) const;
-    virtual Brain* getAttribut() const;
+    WrongAnimal();
+    virtual ~WrongAnimal();
+    WrongAnimal& operator=(WrongAnimal const & rhs);
+    WrongAnimal(WrongAnimal const & copy);
+    void makeSound( void ) const;
+    std::string getType( void ) const;
 };
 
 #endif

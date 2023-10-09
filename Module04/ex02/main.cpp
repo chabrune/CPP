@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 14:36:44 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/08 17:20:10 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/08 14:28:24 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/08 19:58:18 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
+#include "Test.hpp"
 
-# include <iostream>
-# include <string>
-# include "Animal.hpp"
 
-class Dog : public Animal
+int main()
 {
-    protected:
-    std::string type;
+    // Animal obj;
+    //Cant use Animal directly --> ABSTRACT CLASS
 
-    public:
-    Dog();
-    ~Dog();
-    Dog& operator=(Dog const & rhs);
-    Dog(Dog const & copy);
-    void makeSound( void ) const;
-    std::string getType( void ) const;
-    Brain* getAttribut(void) const;
+    Animal *emma;
+    Dog dog;
+    Cat cat;
 
-    private:
-    Brain *_attribut;
-};
-
-#endif
+    emma = &dog;
+    emma->makeSound();
+    emma = &cat;
+    emma->makeSound();
+    return(0);
+}

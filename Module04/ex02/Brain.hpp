@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 14:28:55 by chabrune          #+#    #+#             */
-/*   Updated: 2023/10/08 16:53:37 by chabrune         ###   ########.fr       */
+/*   Created: 2023/10/08 16:40:34 by chabrune          #+#    #+#             */
+/*   Updated: 2023/10/08 19:52:01 by chabrune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <string>
-# include "Brain.hpp"
-# include <cstdlib>
 
-class Animal
+class Brain
 {
-    protected:
-    std::string type;
-
     public:
-    Animal();
-    virtual ~Animal();
-    Animal& operator=(Animal const & rhs);
-    Animal(Animal const & copy);
-    virtual void makeSound( void ) const;
-    virtual std::string getType( void ) const;
-    virtual Brain* getAttribut() const;
+    Brain();
+    ~Brain();
+    Brain& operator=(Brain const & rhs);
+    Brain(Brain const & copy);
+    void setIdea(std::string idea, unsigned int index);
+    std::string getIdea( unsigned int index );
+    void setAllIdea(std::string idea);
+    void getAllIdea(void);
+
+
+
+    private:
+    std::string *ideas;
 };
 
 #endif

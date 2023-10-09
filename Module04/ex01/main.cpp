@@ -15,44 +15,50 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
+#include "Test.hpp"
 
 
 int main()
 {
-    // const Animal* j = new Dog();
-    // const Animal* i = new Cat();
-    // delete j;//should not create a leak
-    // delete i;
-    // std::cout << std::endl;
-    // const Animal *(tab[4]);
-    // for(int i = 0; i < 2; i++)
-    //     tab[i] = new Dog();
-    // std::cout << std::endl;
-    // for(int j = 2; j < 4; j++)
-    //     tab[j] = new Cat();
-    // std::cout << std::endl;
-    // for(int i = 0; i < 4; i++)
-    //     delete tab[i];
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    delete j;//should not create a leak
+    delete i;
+    std::cout << std::endl;
+    const Animal *(tab[4]);
+    for(int i = 0; i < 2; i++)
+    {
+        tab[i] = new Dog();
+        std::cout << tab[i]->getType() << std::endl;
+    }
+    for(int j = 2; j < 4; j++)
+    {
+        tab[j] = new Cat();
+        std::cout << tab[j]->getType() << std::endl;
+    }
+    std::cout << std::endl;
+    for(int i = 0; i < 4; i++)
+        delete tab[i];
 
-    Dog *kiki = new Dog();
-    Cat *grigri;
-    // Dog & kikiref = kiki;
-    // Cat & grigriref = grigri;
+    Test sobj1(42);
+    Test sobj2 = sobj1;
+    std::cout << "Shallow copy" << std::endl;
+    std::cout << "Objet 1 value " << sobj1.n << std::endl;
+    std::cout << "Objet 2 value " << sobj2.n << std::endl;
+    std::cout << std::endl;
+    Test2 dobj1(42);
+    Test2 dobj2(dobj1); 
+    std::cout << "Deep copy" << std::endl;
+    std::cout << "Objet 1 value " << dobj1.n << std::endl;
+    std::cout << "Objet 2 value " << dobj2.n << std::endl;
+    std::cout << std::endl;
 
-    // Dog copydog(kikiref);
-    // Cat copycat(grigriref);
+    dobj1.n = 21; // Modifying dobj1 should NOT affect dobj2
+    std::cout << "Modifying Objet 1 value souldnt affect Object 2 value --- objet1.n = 21" << std::endl;
+    std::cout << std::endl;
 
-    // Dog & copydogref = copydog;
-    // Cat & copycatref = copycat;
-
-    // std::cout << std::endl;
-    // std::cout << &copydogref << std::endl;
-    // std::cout << &kiki << std::endl;
-    // std::cout << std::endl;
-    // std::cout << &copycatref << std::endl;
-    // std::cout << &grigri << std::endl;
-    // std::cout << std::endl;
-
+    std::cout << "Object 1 value " << dobj1.n << std::endl;
+    std::cout << "Object 2 value " << dobj2.n << std::endl;
 
     return 0;
 }
