@@ -18,7 +18,7 @@ SRC = 	main.cpp \
 		WrongAnimal.cpp \
 		WrongCat.cpp \
 		Brain.cpp \
-		Test.cpp
+
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 RM = rm -f

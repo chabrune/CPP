@@ -15,7 +15,6 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
-#include "Test.hpp"
 
 
 int main()
@@ -40,25 +39,11 @@ int main()
     for(int i = 0; i < 4; i++)
         delete tab[i];
 
-    Test sobj1(42);
-    Test sobj2 = sobj1;
-    std::cout << "Shallow copy" << std::endl;
-    std::cout << "Objet 1 value " << sobj1.n << std::endl;
-    std::cout << "Objet 2 value " << sobj2.n << std::endl;
-    std::cout << std::endl;
-    Test2 dobj1(42);
-    Test2 dobj2(dobj1); 
-    std::cout << "Deep copy" << std::endl;
-    std::cout << "Objet 1 value " << dobj1.n << std::endl;
-    std::cout << "Objet 2 value " << dobj2.n << std::endl;
-    std::cout << std::endl;
-
-    dobj1.n = 21; // Modifying dobj1 should NOT affect dobj2
-    std::cout << "Modifying Objet 1 value souldnt affect Object 2 value --- objet1.n = 21" << std::endl;
-    std::cout << std::endl;
-
-    std::cout << "Object 1 value " << dobj1.n << std::endl;
-    std::cout << "Object 2 value " << dobj2.n << std::endl;
+    Dog dog1;
+    {
+        Dog dog2 = dog1;
+    }
+    std::cout << dog1.getAttribut() << std::endl;
 
     return 0;
 }

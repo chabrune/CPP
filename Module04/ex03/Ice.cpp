@@ -6,23 +6,32 @@ Ice::Ice() : AMateria("ice")
 Ice::~Ice()
 {}
 
-Ice::Ice(Ice const & ref) : AMateria("ice")
+Ice::Ice(std::string const & type) : AMateria(type)
+{}
+
+
+Ice::Ice(Ice const & copy)
 {
-    *this = ref;
+    *this = copy;
 }
 
 Ice& Ice::operator=(Ice const & rhs)
 {
-    this->type = rhs.type;
     return(*this);
 }
 
-AMateria* Ice::clone()
+Ice* Ice::clone() const
 {
-    return(new Ice(*this));
+    Ice *clone = new Ice();
+    return(clone);
+}
+
+std::string const & Ice::getType() const
+{
+    return(this->_type);
 }
 
 void Ice::use(ICharacter& target)
 {
-    std::cout << "* shoots an ice bolt at " << target->getName() << " *" << std::endl;
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
