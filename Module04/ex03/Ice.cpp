@@ -17,6 +17,7 @@ Ice::Ice(Ice const & copy)
 
 Ice& Ice::operator=(Ice const & rhs)
 {
+    (void)rhs;
     return(*this);
 }
 

@@ -11,8 +11,11 @@ class MateriaSource : public IMateriaSource
     ~MateriaSource();
     MateriaSource& operator=(MateriaSource const & rhs);
     MateriaSource(MateriaSource const & copy);
-    void learnMateria(AMateria*) = 0;
-    AMateria* createMateria(std::string const & type) = 0;
+    void learnMateria(AMateria*);
+    AMateria* createMateria(std::string const & type);
+
+    private:
+    AMateria *(_inventory[4]);
 };
 
 #endif

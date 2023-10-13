@@ -2,7 +2,9 @@
 # define AMATERIA_HPP
 
 # include <iostream>
-# include <ICharacter.hpp>
+# include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
@@ -20,4 +22,4 @@ class AMateria
     virtual void use(ICharacter& target);
 };
 
-#endif;
+#endif

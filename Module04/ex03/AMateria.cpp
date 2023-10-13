@@ -2,12 +2,12 @@
 
 AMateria::AMateria()
 {
-    std::cout << "Default AMateria constructor called" << std::endl;
+    // std::cout << "Default AMateria constructor called" << std::endl;
 }
 
 AMateria::~AMateria()
 {
-    std::cout << "Destructor AMateria called" << std::endl;
+    // std::cout << "Destructor AMateria called" << std::endl;
 }
 
 // AMateria& AMateria::operator=(AMateria const & rhs)
@@ -17,7 +17,10 @@ AMateria::AMateria(AMateria const & copy) : _type(copy._type)
 {}
 
 void AMateria::use(ICharacter& target)
-{}
+{
+    (void)target;
+    return;
+}
 
 std::string const &  AMateria::getType() const
 {

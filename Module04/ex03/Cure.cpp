@@ -17,6 +17,7 @@ Cure::Cure(Cure const & copy)
 
 Cure& Cure::operator=(Cure const & rhs)
 {
+    (void)rhs;
     return(*this);
 }
 
