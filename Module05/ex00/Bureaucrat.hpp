@@ -8,24 +8,29 @@ class Bureaucrat
 {
     private:
     const std::string _name;
-    unsigned int _grade;
-	class Nath : public std::exception
-	{
-		const char* what() const throw()
-		{
-			return("LOL");
-		}
-	};
+    int _grade;
 
     public:
-    Bureaucrat(const std::string name, unsigned int grade);
+	class GradeTooHighException : public std::exception
+	{
+        public:
+		const char* what() const throw();
+	};
+    class GradeTooLowException : public std::exception
+	{
+        public:
+		const char* what() const throw();
+	};
+    Bureaucrat(const std::string name, int grade);
     ~Bureaucrat();
     Bureaucrat(Bureaucrat const & copy);
     Bureaucrat& operator=(Bureaucrat const & rhs);
     std::string const getName( void ) const;
-    unsigned int getGrade( void ) const;
+    int getGrade( void ) const;
+    void incrementGrade( int points );
+    void decrementGrade( int points );
 };
 
-std::ostream &operator<<(std::ostream str, Bureaucrat const & ref);
+std::ostream& operator<<(std::ostream &str, Bureaucrat const & ref);
 
 #endif
