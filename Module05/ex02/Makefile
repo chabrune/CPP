@@ -13,7 +13,10 @@
 
 SRC = 	main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
+		PresidentialPardonForm.cpp \
+		AForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
