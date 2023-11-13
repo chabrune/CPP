@@ -3,6 +3,12 @@
 
 # include <iostream>
 # include <string>
+# include <limits>
+# include <iomanip>
+# include <cstdlib>
+# include <climits>
+# include <cfloat>
+# include <cmath>
 
 class ScalarConverter
 {
@@ -15,8 +21,8 @@ class ScalarConverter
     ScalarConverter& operator=(ScalarConverter const &rhs);
     ScalarConverter(ScalarConverter const &copy);
     static void charConv(std::string s);
-    int isNumber(std::string s);
-    
+    static int isNumber(std::string s);
+    static void floatConv(std::string s);
 };
 
 #endif
