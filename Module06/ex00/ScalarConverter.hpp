@@ -9,6 +9,7 @@
 # include <climits>
 # include <cfloat>
 # include <cmath>
+# include <cerrno>
 
 class ScalarConverter
 {
@@ -23,6 +24,8 @@ class ScalarConverter
     static void charConv(std::string s);
     static int isNumber(std::string s);
     static void floatConv(std::string s);
+    static void intConv(std::string s);
+    static void doubleConv(std::string s);
 };
 
 #endif
