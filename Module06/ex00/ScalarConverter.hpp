@@ -10,6 +10,7 @@
 # include <cfloat>
 # include <cmath>
 # include <cerrno>
+# include <sstream>
 
 class ScalarConverter
 {
