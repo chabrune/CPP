@@ -21,10 +21,11 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if(executor.getGrade() > this->AForm::getGradeExec())
-		throw Bureaucrat::GradeTooLowException();
-	if(!this->AForm::getSign())
-		throw std::exception();
+	// if(executor.getGrade() > this->AForm::getGradeExec())
+	// 	throw Bureaucrat::GradeTooLowException();
+	// if(!this->AForm::getSign())
+	// 	throw std::exception();
+  (void)executor;
 	std::string tree = "                                              .\n\
                                    .         ;\n\
       .              .              ;%     ;;\n\

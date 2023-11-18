@@ -68,7 +68,7 @@ void Bureaucrat::executeForm(AForm const & form)
 {
     try
     {
-        form.execute(*this);
+        form.check(*this);
     }
     catch(const AForm::GradeTooLowException())
     {

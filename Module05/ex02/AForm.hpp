@@ -38,6 +38,7 @@ class AForm
     bool getSign( void ) const;
     void    beSigned(const Bureaucrat &ref);
     virtual void execute(Bureaucrat const & executor) const = 0;
+    virtual void check(Bureaucrat const & executor) const;
 };
 
 std::ostream& operator<<(std::ostream &str, AForm const &ref);

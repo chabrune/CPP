@@ -67,3 +67,11 @@ void AForm::beSigned(const Bureaucrat &ref)
         throw(AForm::GradeTooLowException());
 }
 
+void AForm::check(Bureaucrat const & executor) const
+{
+    if(executor.getGrade() > this->getGradeExec())
+		throw Bureaucrat::GradeTooLowException();
+	if(!this->getSign())
+		throw std::exception();
+    execute(executor);
+}

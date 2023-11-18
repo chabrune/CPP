@@ -6,20 +6,20 @@ template<typename T>
 class Array
 {
     public:
-    Array<T>()
+    Array()
     {
         this->_array = new T[0];
         this->_size = 0;
     }
-    Array<T>(unsigned int n)
+    Array(unsigned int n)
     {
         this->_array = new T[n];
         this->_size = n;
     }
-    Array<T>(const Array<T> & src)
+    Array(const Array<T> & src)
     {
-        this->_array = new T[src.size];
-        this->_size = src.size;
+        this->_array = new T[src.size()];
+        this->_size = src.size();
         for(unsigned int i = 0; i < this->_size; i++)
             this->_array[i] = src._array[i];
     }
@@ -28,24 +28,23 @@ class Array
         if(this != &rhs)
         {
             delete [] this->_array;
-            this->size = rhs.size;
-            for(unsigned int i = 0; i < rhs.size; i++)
+            this->size = rhs.size();
+            for(unsigned int i = 0; i < rhs.size(); i++)
                 this->_array[i] = rhs._array[i];
         }
-        std::cout << this << std::endl;
-        std::cout << *this << std::endl;
         return(*this);
     }
     T& operator[](unsigned int n)
     {
         if(n >= this->_size)
             throw(std::exception());
+        return(this->_array[n]);
     }
-    unsigned int size()
+    unsigned int size() const
     {
         return(this->_size);
     }
-    ~Array<T>()
+    ~Array()
     {
         delete [] this->_array;
     }
