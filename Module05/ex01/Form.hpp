@@ -3,6 +3,8 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
     const std::string _name;
@@ -25,15 +27,13 @@ class Form
     };
     Form(Form const & copy);
     Form(std::string name, int gradeSign, int gradeExec);
-    virtual ~Form() = 0;
+    ~Form();
     Form& operator=(Form const & rhs);
     int getGradeSign( void ) const;
     int getGradeExec( void ) const;
     std::string getName( void ) const;
     bool getSign( void ) const;
-    void    beSigned(Bureaucrat &ref);
-    void    signForm(Bureaucrat &ref) const;
-
+    void    beSigned(const Bureaucrat &ref);
 };
 
 std::ostream& operator<<(std::ostream &str, Form const &ref);

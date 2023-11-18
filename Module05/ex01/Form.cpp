@@ -58,21 +58,11 @@ bool Form::getSign( void ) const
     return(this->_signed);
 }
 
-void Form::beSigned(Bureaucrat &ref)
+void Form::beSigned(const Bureaucrat &ref)
 {
     std::cout << this->_gradeSign << " " << ref.getGrade() << std::endl;
-//     if(this->_gradeSign >= ref.getGrade())
-//         this->_signed = true;
-//     else
-//         throw(std::exception());
-}
-
-void    Form::signForm(Bureaucrat & ref) const
-{
-    if(this->_signed == true)
-    {
-        std::cout << ref.getName() << " signed " << this->_name << std::endl;
-    }
+    if(this->_gradeSign >= ref.getGrade())
+        this->_signed = true;
     else
-        std::cout << ref.getName() << " couldn't sign " << this->_name << " because " << this->_name << " required grade " << this->_gradeSign << " to be signed" << std::endl;
+        throw(std::exception());
 }

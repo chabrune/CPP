@@ -25,7 +25,7 @@ void	replace(const std::string filename, const std::string s1, const std::string
 		std::cerr << "Error : Unable to open input file." << std::endl;
 		return;
 	}
-	while(!inputFile.eof() && inputFile >> std::noskipws >> c)~
+	while(!inputFile.eof() && inputFile >> std::noskipws >> c)
 		buff += c;
 	inputFile.close();
 	outputFile.open(newFilename.c_str());

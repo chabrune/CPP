@@ -30,7 +30,7 @@ class AForm
     };
     AForm(AForm const & copy);
     AForm(std::string name, int gradeSign, int gradeExec);
-    ~AForm();
+    virtual ~AForm();
     AForm& operator=(AForm const & rhs);
     int getGradeSign( void ) const;
     int getGradeExec( void ) const;

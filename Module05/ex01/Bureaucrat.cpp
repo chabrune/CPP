@@ -23,7 +23,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat const & rhs)
 
 std::ostream &operator<<(std::ostream& str, Bureaucrat const & ref)
 {
-    str << ref.getName() << ", buraucrat grade " << ref.getGrade() << "." << std::endl;
+    str << ref.getName() << ", buraucrat grade " << ref.getGrade() << " ";
     return(str);
 }
 
@@ -62,4 +62,17 @@ void Bureaucrat::decrementGrade( int points )
     if(this->_grade + points < 1)
         throw GradeTooHighException();
     this->_grade += points;
+}
+
+void    Bureaucrat::signAForm(Form & form) const
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << *this << " signed " << form.getName() << std::endl;
+    }
+    catch(std::exception & e)
+    {
+        std::cout << *this << " couldn't sign " << form.getName() << " because his grade is too low" << std::endl;
+    }
 }

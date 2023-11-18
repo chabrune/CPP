@@ -6,7 +6,7 @@ int main()
     {
         try
         {
-            Bureaucrat	martine("titine", 0);
+            Bureaucrat	martine("titine", 15);
         }
         catch(std::exception & e)
         {

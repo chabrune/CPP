@@ -3,6 +3,9 @@
 
 # include <string>
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -29,6 +32,7 @@ class Bureaucrat
     int getGrade( void ) const;
     void incrementGrade( int points );
     void decrementGrade( int points );
+    void signAForm(Form & form) const;
 };
 
 std::ostream& operator<<(std::ostream &str, Bureaucrat const & ref);
