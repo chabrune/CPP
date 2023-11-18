@@ -187,8 +187,14 @@ void ScalarConverter::intConv(std::string s)
 			std::cout << "int: impossible" << std::endl;
 		else
 			std::cout << "int: " << n << std::endl;
-		std::cout << "float: " << static_cast<float>(n) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(n) << ".0" << std::endl;
+		if(isScientific(n))
+			std::cout << "float: " << static_cast<float>(n) << "f" << std::endl;
+		else
+			std::cout << "float: " << static_cast<float>(n) << ".0f" << std::endl;
+		if(isScientific(n))
+			std::cout << "double: " << static_cast<double>(n) << std::endl;
+		else
+			std::cout << "double: " << static_cast<double>(n) << ".0" << std::endl;
 	}
 	catch(const std::out_of_range &e)
 	{
