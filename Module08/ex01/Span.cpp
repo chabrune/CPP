@@ -76,9 +76,9 @@ const char* Span::EmptySpanException::what() const throw()
     return("Span empty or only 1 element");
 }
 
-void Span::addNumber(std::deque<int>::iterator seqBegin, std::deque<int>::iterator seqEnd)
+void Span::addNumber(std::deque<int>::const_iterator seqBegin, std::deque<int>::const_iterator seqEnd)
 {
     if((this->_span.size() + std::distance(seqBegin, seqEnd)) > this->_N)
         throw(FullSpanException());
-    this->_span.insert(this->_span.end(), seqBegin, SeqEnd);
+    this->_span.insert(this->_span.end(), seqBegin, seqEnd);
 }

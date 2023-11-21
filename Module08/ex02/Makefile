@@ -6,7 +6,7 @@
 #    By: chabrune <chabrune@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 11:07:40 by chabrune          #+#    #+#              #
-#    Updated: 2023/10/08 15:40:28 by chabrune         ###   ########.fr        #
+#    Updated: 2023/11/21 03:35:16 by chabrune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CXX = c++
 RM = rm -f
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Array
+NAME = Stack
 
 all: $(NAME)
 

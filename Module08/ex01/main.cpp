@@ -51,12 +51,15 @@ int main()
 {
     try
     {
-        //Creer une tomporaire pour creer une sequence a jouter a sp
-        Span sp(42);
-        std::deque<int>::iterator itfive = sp.getItSpanBegin();
-        itfive += 5;
-        std::deque<int>::iterator itten = sp.getItSpanBegin();
-        itten += 10;
+        Span tmp(10);
+        srand(time(NULL));
+        for(int i = 0; i < 10; i++)
+            tmp.addNumber(rand());
+        Span sp(12);
+        sp.addNumber(42);
+        sp.addNumber(tmp.getItSpanBegin(), tmp.getItSpanEnd());
+        sp.addNumber(42);
+        std::for_each(sp.getItSpanBegin(), sp.getItSpanEnd(), printElem);
 
 
     }

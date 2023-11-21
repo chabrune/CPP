@@ -13,7 +13,7 @@ class Span
     Span(const Span &source);
     Span& operator=(const Span &rhs);
     void addNumber(unsigned int add);
-    void addNumber(std::deque<int>::iterator seqBegin, std::deque<int>::iterator seqEnd);
+    void addNumber(std::deque<int>::const_iterator seqBegin, std::deque<int>::const_iterator seqEnd);
     std::deque<int>::iterator getItSpanBegin();
     std::deque<int>::iterator getItSpanEnd();
     int shortestSpan();
