@@ -43,5 +43,26 @@ int main()
 		std::list<int>::reverse_iterator rite = lst.rend();
 		for(; rit != rite; ++rit)
 			std::cout << *rit << std::endl;
+		std::cout << std::endl;
+	}
+	{
+		std::cout << "----- DEQUE -----" << std::endl;
+		std::deque<int> deq;
+		deq.push_back(10);
+		deq.push_back(50);
+		deq.push_back(70);
+		deq.push_back(90);
+		deq.pop_back();
+		deq.push_back(42);
+		std::cout << std::boolalpha << "is deq empty ? : " << deq.empty() << " - size = " << deq.size() << std::endl;
+		std::deque<int>::iterator it = deq.begin();
+		std::deque<int>::iterator ite = deq.end();
+		for(; it != ite; ++it)
+			std::cout << *it << std::endl;
+		std::cout << std::endl <<  "Here with reverse iterator :" << std::endl;
+		std::deque<int>::reverse_iterator rit = deq.rbegin();
+		std::deque<int>::reverse_iterator rite = deq.rend();
+		for(; rit != rite; ++rit)
+			std::cout << *rit << std::endl;
 	}
 }
