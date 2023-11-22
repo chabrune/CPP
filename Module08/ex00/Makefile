@@ -23,7 +23,7 @@ NAME = Easy_Find
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+		$(CXX) $(CXXFLAGS) $(OBJ) -o $@
 
 clean:
 		$(RM) $(OBJ)
