@@ -27,5 +27,4 @@ class BitcoinExchange
 
     private:
     std::map<std::string, float> _database;
-    std::map<std::string, float> _input;
 };

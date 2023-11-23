@@ -89,8 +89,8 @@ float BitcoinExchange::findKey(std::string date)
     {
         if(date == it->first)
             return(it->second);
-        if (std::distance(it, this->_database.end()) <= 1)
-            return (it->second);
+        // if (std::distance(it, this->_database.end()) <= 1)
+        //     return (it->second);
     }
     iterator itlb = this->_database.lower_bound(date);
     return(itlb->second); 
