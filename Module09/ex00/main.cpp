@@ -2,8 +2,13 @@
 
 int main(int argc, char **argv)
 {
-    (void)argc;
     (void)argv;
+    if(argc != 2)
+    {
+        std::cerr << "Error: could not open file." << std::endl;
+        return(1);
+    }
     BitcoinExchange frr;
-    frr.parsing();
+    frr.parsingcsv();
+    frr.handleoutput(static_cast<std::string>(argv[1]));
 }

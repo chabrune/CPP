@@ -5,7 +5,7 @@ CXX = c++
 RM = rm -f
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Bitcoin
+NAME = btc
 
 all: $(NAME)
 

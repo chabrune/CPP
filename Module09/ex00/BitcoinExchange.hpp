@@ -6,6 +6,8 @@
 #include <string>
 #include <cstdlib>
 #include <sstream>
+#include <climits>
+#include <limits>
 
 class BitcoinExchange
 {
@@ -14,8 +16,16 @@ class BitcoinExchange
     ~BitcoinExchange();
     BitcoinExchange& operator=(const BitcoinExchange &rhs);
     BitcoinExchange(const BitcoinExchange &src);
-    void parsing( void );
+    void parsingcsv( void );
+    void handleoutput( std::string argv );
+    bool checkValue(float n) const;
+    bool checkDate(std::string date);
+    float findKey(std::string date);
+    typedef std::map<std::string, float>::iterator iterator;
+    typedef std::map<std::string, float>::reverse_iterator reverse_iterator;
+
 
     private:
-    std::map<std::string, int> _data;
+    std::map<std::string, float> _database;
+    std::map<std::string, float> _input;
 };
