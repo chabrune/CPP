@@ -8,13 +8,13 @@ BitcoinExchange::~BitcoinExchange()
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &rhs)
 {
-    (void)rhs;
+    this->_database = rhs._database;
     return(*this);
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &src)
 {
-    (void)src;
+    this->_database = src._database;
 }
 
 void BitcoinExchange::parsingcsv( void )
@@ -35,7 +35,7 @@ void BitcoinExchange::parsingcsv( void )
     }
 }
 
-bool BitcoinExchange::checkValue(float n) const
+bool BitcoinExchange::checkValue(const float n) const
 {
     if(n > std::numeric_limits<int>::max() || n > 1000)
     {
@@ -51,7 +51,7 @@ bool BitcoinExchange::checkValue(float n) const
         return true;
 }
 
-bool BitcoinExchange::checkDate(std::string date)
+bool BitcoinExchange::checkDate(const std::string date) const
 {
     if(date.length() != 11)
     {
@@ -89,14 +89,21 @@ float BitcoinExchange::findKey(std::string date)
     {
         if(date == it->first)
             return(it->second);
-        // if (std::distance(it, this->_database.end()) <= 1)
-        //     return (it->second);
     }
-    iterator itlb = this->_database.lower_bound(date);
-    return(itlb->second); 
+    if(std::atoi(date.substr(0, 4).c_str()) <= 2022 && std::atoi(date.substr(5, 2).c_str()) <= 3 && std::atoi(date.substr(8, 2).c_str()) <= 29)
+    {
+        iterator itlb = this->_database.lower_bound(date);
+        return(itlb->second); 
+    }
+    else
+    {
+        iterator ite = (this->_database.end());
+        ite--;
+        return(ite->second);
+    }
 }
 
-void BitcoinExchange::handleoutput(std::string argv)
+void BitcoinExchange::handleoutput(const std::string argv)
 {
     if(argv.find(".txt") == std::string::npos)
     {
