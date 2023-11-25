@@ -103,7 +103,7 @@ float BitcoinExchange::findKey(std::string date)
     }
 }
 
-void BitcoinExchange::handleoutput(const std::string argv)
+void BitcoinExchange::handleInput(const std::string argv)
 {
     if(argv.find(".txt") == std::string::npos)
     {

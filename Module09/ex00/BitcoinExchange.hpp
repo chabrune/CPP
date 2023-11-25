@@ -17,7 +17,7 @@ class BitcoinExchange
     BitcoinExchange& operator=(const BitcoinExchange &rhs);
     BitcoinExchange(const BitcoinExchange &src);
     void parsingcsv( void );
-    void handleoutput( const std::string argv );
+    void handleInput( const std::string argv );
     bool checkValue(const float n) const;
     bool checkDate(const std::string date) const;
     float findKey(std::string date);
