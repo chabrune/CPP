@@ -6,7 +6,8 @@ RPN::~RPN() {}
 
 RPN& RPN::operator=(const RPN &rhs)
 {
-    this->_s = rhs._s;
+    if(this != &rhs)
+        this->_s = rhs._s;
     return *this;
 }
 
