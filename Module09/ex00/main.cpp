@@ -10,5 +10,5 @@ int main(int argc, char **argv)
     }
     BitcoinExchange frr;
     frr.parsingcsv();
-    frr.handleoutput(std::string(argv[1]));
+    frr.handleInput(std::string(argv[1]));
 }
