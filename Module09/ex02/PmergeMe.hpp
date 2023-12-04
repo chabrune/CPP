@@ -17,8 +17,10 @@ class PmergeMe
     PmergeMe& operator=(const PmergeMe &rhs);
     PmergeMe(const PmergeMe &src);
     void handleInput(char **argv);
-    void ft_merge( void );
-
+    void ft_merge(int first, int last, int mid);
+    void ft_merge_sort( int first, int last );
+    void ft_print( void );
+    void exec( void );
 
     private:
     std::vector<int> _v;

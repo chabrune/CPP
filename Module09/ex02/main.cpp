@@ -10,6 +10,7 @@ int main(int argc, char **argv)
     {
         PmergeMe izi;
         izi.handleInput(argv);
+        izi.exec();
     }
     catch(const std::logic_error& e)
     {
