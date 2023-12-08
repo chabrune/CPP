@@ -42,28 +42,60 @@ void PmergeMe::handleInput(char **argv)
 void    PmergeMe::ft_print( void )
 {
     for(std::vector<int>::iterator it = this->_v.begin(); it != this->_v.end(); ++it)
-    {
-        std::cout << *it << std::endl;
-    }
+        std::cout << *it << " ";
+    std::cout << std::endl;
 }
 
 void PmergeMe::exec( void )
 {
-    ft_merge_sort(0, this->_v.size() - 1);
+    std::cout << "Before: ";
     ft_print();
+    clock_t start, end;
+    start = clock();
+    mergeSortVector(0, this->_v.size() - 1);
+    end = clock();
+    double time = (((double) end - start));
+    std::cout << "After: ";
+    ft_print();
+    std::cout << "Time to process a range of " << this->_v.size() << " elements with std::vector<int>: " << time << "us" << std::endl;
+    start = clock();
+    mergeSortDeque(0, this->_d.size() - 1);
+    end = clock();
+    time = (((double) end - start));
+    std::cout << "Time to process a range of " << this->_d.size() << " elements with std::deque<int>: " << time << "us" << std::endl;
+
 }
 
-void PmergeMe::ft_merge_sort( int first, int last )
+void PmergeMe::insertSortVector( int first, int last )
 {
-    if((last - first) < 1)
-        return;
-    int mid = (first + last) / 2;
-    ft_merge_sort(first, mid);
-    ft_merge_sort(mid + 1, last);
-    ft_merge(first, last, mid);
+    int i, j, k;
+    for(i = first + 1; i <= last; i++)
+    {
+        k = this->_v[i];
+        j = i - 1;
+        while(j >= first && this->_v[j] > k)
+        {
+            this->_v[j + 1] = this->_v[j];
+            j--;
+        }
+        this->_v[j + 1] = k;
+    }
 }
 
-void PmergeMe::ft_merge(int first, int last, int mid)
+void PmergeMe::mergeSortVector( int first, int last )
+{
+    if((last - first) < 5)
+    {
+        insertSortVector(first, last);
+        return;
+    }
+    int mid = (first + last) / 2;
+    mergeSortVector(first, mid);
+    mergeSortVector(mid + 1, last);
+    mergeVector(first, last, mid);
+}
+
+void PmergeMe::mergeVector(int first, int last, int mid)
 {
     int nL = mid - first + 1;
     int nR = last - mid;
@@ -85,4 +117,57 @@ void PmergeMe::ft_merge(int first, int last, int mid)
         this->_v[k++] = L[i++];
     while (j < nR)
         this->_v[k++] = R[j++];
+}
+
+void PmergeMe::mergeDeque(int first, int last, int mid)
+{
+    int nL = mid - first + 1;
+    int nR = last - mid;
+    int i, j, k;
+    int L[nL], R[nR];
+    for (i = 0; i < nL; i++)
+        L[i] = this->_d[first + i];
+    for (j = 0; j < nR; j++)
+        R[j] = this->_d[mid + 1 + j];
+    i = 0; j = 0; k = first;
+    while (i < nL && j < nR)
+    {
+        if (L[i] <= R[j])
+            this->_d[k++] = L[i++];
+        else
+            this->_d[k++] = R[j++];
+    }
+    while (i < nL)
+        this->_d[k++] = L[i++];
+    while (j < nR)
+        this->_d[k++] = R[j++];
+}
+
+void PmergeMe::mergeSortDeque( int first, int last )
+{
+    if((last - first) < 5)
+    {
+        insertSortDeque(first, last);
+        return;
+    }
+    int mid = (first + last) / 2;
+    mergeSortDeque(first, mid);
+    mergeSortDeque(mid + 1, last);
+    mergeDeque(first, last, mid);
+}
+
+void PmergeMe::insertSortDeque( int first, int last )
+{
+    int i, j, k;
+    for(i = first + 1; i <= last; i++)
+    {
+        k = this->_d[i];
+        j = i - 1;
+        while(j >= first && this->_d[j] > k)
+        {
+            this->_d[j + 1] = this->_d[j];
+            j--;
+        }
+        this->_d[j + 1] = k;
+    }
 }

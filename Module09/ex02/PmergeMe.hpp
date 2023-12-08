@@ -8,6 +8,7 @@
 # include <stdexcept>
 # include <limits>
 # include <climits>
+# include <ctime>
 
 class PmergeMe
 {
@@ -17,10 +18,14 @@ class PmergeMe
     PmergeMe& operator=(const PmergeMe &rhs);
     PmergeMe(const PmergeMe &src);
     void handleInput(char **argv);
-    void ft_merge(int first, int last, int mid);
-    void ft_merge_sort( int first, int last );
+    void mergeVector(int first, int last, int mid);
+    void mergeSortVector( int first, int last );
+    void insertSortVector(int first, int last);
     void ft_print( void );
     void exec( void );
+    void mergeDeque(int first, int last, int mid);
+    void mergeSortDeque( int first, int last );
+    void insertSortDeque(int first, int last);
 
     private:
     std::vector<int> _v;

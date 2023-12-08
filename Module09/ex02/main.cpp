@@ -8,9 +8,9 @@ int main(int argc, char **argv)
     }
     try
     {
-        PmergeMe izi;
-        izi.handleInput(argv);
-        izi.exec();
+        PmergeMe fordj;
+        fordj.handleInput(argv);
+        fordj.exec();
     }
     catch(const std::logic_error& e)
     {
