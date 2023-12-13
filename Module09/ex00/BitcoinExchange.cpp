@@ -23,7 +23,7 @@ void BitcoinExchange::parsingcsv( void )
     if(!file.is_open())
     {
         std::cerr << "Error: could not open file." << std::endl;
-        return;
+        std::exit(1);
     }
     std::string line, rate, date, header;
     std::getline(file, header);
@@ -74,7 +74,22 @@ bool BitcoinExchange::checkDate(const std::string date) const
     int year = atoi(date.substr(0, 4).c_str());
     int month = atoi(date.substr(5, 2).c_str());
     int day = atoi(date.substr(8, 2).c_str());
-    if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
+    bool isbissextile = false;
+    if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+    {
+        isbissextile = true;
+    }
+    if(!isbissextile && day > 28 && month == 2)
+    {
+        std::cout << "Error: bad input => " << date << std::endl;
+        return false;
+    }
+    else if((month == 2 && day > 29) || (month == 4 && day == 31) || (month == 6 && day == 31) || (month == 9 && day == 31) || (month == 2 && day == 31) )
+    {
+        std::cout << "Error: bad input => " << date << std::endl;
+        return false;
+    }
+    else if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
     {
         std::cout << "Error: bad input => " << date << std::endl;
         return false;
@@ -90,7 +105,7 @@ float BitcoinExchange::findKey(std::string date)
         if(date == it->first)
             return(it->second);
     }
-    if(std::atoi(date.substr(0, 4).c_str()) <= 2022 && std::atoi(date.substr(5, 2).c_str()) <= 3 && std::atoi(date.substr(8, 2).c_str()) <= 29)
+    if(std::atoi(date.substr(0, 4).c_str()) <= 2022 && (std::atoi(date.substr(5, 2).c_str()) <= 3 || std::atoi(date.substr(5, 1).c_str()) <= 3) && (std::atoi(date.substr(8, 2).c_str()) <= 29 || std::atoi(date.substr(8, 1).c_str()) <= 29))
     {
         iterator itlb = this->_database.lower_bound(date);
         return(itlb->second); 
@@ -105,11 +120,6 @@ float BitcoinExchange::findKey(std::string date)
 
 void BitcoinExchange::handleInput(const std::string argv)
 {
-    if(argv.find(".txt") == std::string::npos)
-    {
-        std::cerr << "Error: could not open file." << std::endl;
-        return;
-    }
     std::ifstream file(argv.c_str());
     if(!file.is_open())
     {
@@ -118,13 +128,30 @@ void BitcoinExchange::handleInput(const std::string argv)
     }
     std::string line, header, date, svalue;
     std::getline(file, header);
+    if(header != "date | value")
+    {
+        std::cerr << "header file must be : date | value" << std::endl;
+        return;
+    }
     while(std::getline(file, line))
     {
-        if(line.find('|') == std::string::npos)
+        bool serror = false;
+        if(line.find('|') == std::string::npos && line.size() != 0)
                 std::cout << "Error: bad input => " << line << std::endl;
         std::istringstream iss(line);
         if (std::getline(std::getline(iss, date, '|'), svalue, '|'))
         {
+            for(int i = 0; svalue[i]; i++)
+            {
+                if(!std::isdigit(svalue[i]) && !std::isspace(svalue[i]))
+                {
+                    std::cout << "Error: bad input => " << svalue << std::endl;
+                    serror = true;
+                    break;
+                }
+            }
+            if(serror == true)
+                continue;
             float value = std::atof(svalue.c_str());
             if(this->checkValue(value) && this->checkDate(date))
             {

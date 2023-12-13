@@ -49,21 +49,34 @@ void    PmergeMe::ft_print( void )
 void PmergeMe::exec( void )
 {
     std::cout << "Before: ";
-    ft_print();
+    if(this->_v.size() > 10)
+    {
+        for(int i = 0; i < 4; i++)
+            std::cout << this->_v[i] << " ";
+        std::cout << "[...]" << std::endl;
+    }
+    else
+        ft_print();
     clock_t start, end;
-    start = clock();
+    start = std::clock();
     mergeSortVector(0, this->_v.size() - 1);
-    end = clock();
-    double time = (((double) end - start));
+    end = std::clock();
+    double time = (((double)end - start));
     std::cout << "After: ";
-    ft_print();
+        if(this->_v.size() > 10)
+    {
+        for(int i = 0; i < 4; i++)
+            std::cout << this->_v[i] << " ";
+        std::cout << "[...]" << std::endl;
+    }
+    else
+        ft_print();
     std::cout << "Time to process a range of " << this->_v.size() << " elements with std::vector<int>: " << time << "us" << std::endl;
-    start = clock();
+    start = std::clock();
     mergeSortDeque(0, this->_d.size() - 1);
-    end = clock();
-    time = (((double) end - start));
+    end = std::clock();
+    time = (((double)end - start));
     std::cout << "Time to process a range of " << this->_d.size() << " elements with std::deque<int>: " << time << "us" << std::endl;
-
 }
 
 void PmergeMe::insertSortVector( int first, int last )
@@ -84,7 +97,7 @@ void PmergeMe::insertSortVector( int first, int last )
 
 void PmergeMe::mergeSortVector( int first, int last )
 {
-    if((last - first) < 5)
+    if((last - first) < 2)
     {
         insertSortVector(first, last);
         return;
@@ -145,7 +158,7 @@ void PmergeMe::mergeDeque(int first, int last, int mid)
 
 void PmergeMe::mergeSortDeque( int first, int last )
 {
-    if((last - first) < 5)
+    if((last - first) < 2)
     {
         insertSortDeque(first, last);
         return;
